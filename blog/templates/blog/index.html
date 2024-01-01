@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} 
+    Blog App
+{% endblock %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post.css" %}">
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock %} 
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/mountains.jpg"%}" alt="img"/>
+            <h2>Blog</h2>
+        </header>
+        <p>This is a Django App</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>Latest Posts</h2>
+
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html"%}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>Work expreience</h2>
+        <p>programming</p>
+    </section>
+{% endblock %}
